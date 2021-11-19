@@ -20,8 +20,7 @@ The struct of mongo data is:
 }
  ```
 Endpoints:
-```
-/user/id/:id              
+```       
 /user/field/:value
 ```
 
