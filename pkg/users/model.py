@@ -16,6 +16,8 @@ class modelUsers:
         for element in mongoResult:
             result.append(element)
             mongoResult.next()
+        if len(result)==0:
+            return None
         return result
 
     def __init__(self):

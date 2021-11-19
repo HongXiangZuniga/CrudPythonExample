@@ -10,6 +10,8 @@ class usersController:
     
     def findUserByField(self,field:str,value):
         result = self.model.findUserByField(field,value)
+        if result == None:
+            return None
         for element in result:
            element = dumps(element)
         return dumps(result)
