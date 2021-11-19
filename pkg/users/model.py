@@ -1,5 +1,6 @@
 from pymongo import MongoClient
-
+from dotenv import load_dotenv
+import os
 
 class modelUsers:
     client = None #Client to db
@@ -23,6 +24,8 @@ class modelUsers:
         return result
 
     def __init__(self):
-        self.client = MongoClient("mongodb://localhost:27017") #Client to db
+        load_dotenv()
+        mongouri =os.getenv('MONGOURI')
+        self.client = MongoClient(mongouri) #Client to db
         self.db=self.client.users #database
         self.collection = self.db.users #collection
