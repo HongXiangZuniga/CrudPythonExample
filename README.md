@@ -1,6 +1,12 @@
 # CrudPythonExample
 It is a example to Crud Api in python with flask and connected to mongodb.
 
+ENV:
+```
+PORT=
+MONGOURI=
+```
+
 The struct of mongo data is:
 
 ```json
@@ -13,10 +19,8 @@ The struct of mongo data is:
   "country":"Chile"
 }
  ```
- 
 Endpoints:
-```
-/user/id/:id              
+```       
 /user/field/:value
 ```
 

@@ -1,5 +1,8 @@
 from http import HTTPStatus
 from flask import Flask,jsonify,Response
+import os
+import sys
+from dotenv import load_dotenv
 
 from pkg.users.controller import usersController
 
@@ -32,4 +35,9 @@ def getUserByField(field,value):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=8027)
+    load_dotenv()
+    port = os.getenv('PORT')
+    mongouri =os.getenv('MONGOURI')
+    if(port == None or mongouri==None):
+        sys.exit("Not Found env")
+    app.run(host='0.0.0.0',)
