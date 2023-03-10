@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 from pkg.users.controller import usersController
 
 app = Flask(__name__)
+controller = usersController()
 
 
 @app.route('/user/id/<idUser>')
 def getUserById(idUser):
     idUser = idUser
-    controller = usersController()
     result = controller.getUserById(int(idUser))
     if result==None:
         return Response(result, mimetype='application/json',status=404)
@@ -24,7 +24,6 @@ def getUserByField(field,value):
     value = value
     if value.isnumeric():
         value = int(value)
-    controller = usersController()
     result = controller.findUserByField(field,value)
     if result== None:
         return Response(None, mimetype='application/json',status=404)
@@ -37,7 +36,7 @@ def getUserByField(field,value):
 if __name__ == '__main__':
     load_dotenv()
     port = os.getenv('PORT')
-    mongouri =os.getenv('MONGOURI')
+    mongouri =os.getenv('MONGO_URI')
     if(port == None or mongouri==None):
         sys.exit("Not Found env")
-    app.run(host='0.0.0.0',)
+    app.run(host='0.0.0.0',port=port)
