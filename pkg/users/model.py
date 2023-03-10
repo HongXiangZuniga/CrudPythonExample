@@ -9,7 +9,8 @@ class modelUsers:
 
     def getUserById(self,id:int):
         result = self.collection.find_one({"id":id})
-        result.pop('_id', None)
+        if result !=None:
+            result.pop('_id', None)
         return result
     
     def findUserByField(self,field:str,value):

@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from flask import Flask,jsonify,Response
+from flask import Flask,Response
 import os
 import sys
 from dotenv import load_dotenv
