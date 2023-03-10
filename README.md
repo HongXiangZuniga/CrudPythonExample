@@ -4,7 +4,10 @@ It is a example to Crud Api in python with flask and connected to mongodb.
 ENV:
 ```
 PORT=
-MONGOURI=
+MONGO_URI=
+MONGO_COLLECTIONS=
+MONGO_DB=
+
 ```
 
 The struct of mongo data is:
@@ -20,8 +23,9 @@ The struct of mongo data is:
 }
  ```
 Endpoints:
-```       
-/user/field/:value
+```
+GET /user/id/<idUser> <get user by id>
+GET /user/field/:value <get users by field and value>
 ```
 
 Run:

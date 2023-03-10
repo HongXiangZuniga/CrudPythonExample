@@ -25,7 +25,9 @@ class modelUsers:
 
     def __init__(self):
         load_dotenv()
-        mongouri =os.getenv('MONGOURI')
+        mongouri =os.getenv('MONGO_URI')
+        db =os.getenv('MONGO_DB')
+        collections =os.getenv('MONGO_COLLECTIONS')
         self.client = MongoClient(mongouri) #Client to db
-        self.db=self.client.users #database
-        self.collection = self.db.users #collection
+        self.db=self.client.get_database(db) #database
+        self.collection = self.db.get_collection(collections) #collection
